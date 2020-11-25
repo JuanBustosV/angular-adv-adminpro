@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "adminpro"
+  "defaultProject": "adminpro",
+  "cli": {
+    "analytics": "8890e10d-9339-424f-9ddc-2280a55280bc"
+  }
 }
