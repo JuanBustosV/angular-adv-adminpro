@@ -1,3 +1,6 @@
+import { environment } from "src/environments/environment";
+
+const base_url = environment.base_url; // localhost:3000/api
 
 export class Usuario {
 
@@ -12,4 +15,29 @@ export class Usuario {
         public uid?: string,
 
     ) {};
+
+    imprimirUsuario() {
+        console.log( this.nombre );
+    }
+
+    get imagenUrl() {
+        // console.log(this.img);
+
+        if ( !this.img ) {
+            return `${ base_url }/upload/usuarios/no-image`;
+        } else
+        // Si es la imagen de Google
+        if ( this.img.includes('https') ) {
+            return this.img;
+        }
+        else
+        // localhost:3000/api/upload/usuarios/no-image
+        if( this.img ) {
+            return `${ base_url }/upload/usuarios/${ this.img }`;
+        } else {
+            return `${ base_url }/upload/usuarios/no-image`;
+        }
+
+        return '';
+    }
 }
